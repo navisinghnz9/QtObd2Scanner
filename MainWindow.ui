@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>OBD2 Scanner</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -768,7 +768,7 @@ The more PIDs you select, the slower they will update.</string>
      <rect>
       <x>150</x>
       <y>750</y>
-      <width>75</width>
+      <width>91</width>
       <height>16</height>
      </rect>
     </property>
@@ -785,7 +785,7 @@ The more PIDs you select, the slower they will update.</string>
    <widget class="QLabel" name="status_comStatusLabel">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>260</x>
       <y>750</y>
       <width>200</width>
       <height>16</height>
@@ -804,10 +804,10 @@ The more PIDs you select, the slower they will update.</string>
    <widget class="QLabel" name="status_comInterfaceLabel">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>750</y>
+      <x>450</x>
+      <y>743</y>
       <width>200</width>
-      <height>13</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -823,7 +823,7 @@ The more PIDs you select, the slower they will update.</string>
    <widget class="QLabel" name="status_comProtocolLabel">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>660</x>
       <y>750</y>
       <width>175</width>
       <height>13</height>
@@ -842,7 +842,7 @@ The more PIDs you select, the slower they will update.</string>
    <widget class="QLabel" name="status_pidUpdateRateLabel">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>860</x>
       <y>750</y>
       <width>175</width>
       <height>13</height>
@@ -865,7 +865,7 @@ The more PIDs you select, the slower they will update.</string>
      <x>0</x>
      <y>0</y>
      <width>1234</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
