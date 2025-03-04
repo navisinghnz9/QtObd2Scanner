@@ -18,10 +18,11 @@ public:
 
 private slots:
     void OnSettingsMenuClicked();
+    void onSettingsChanged(QString port, int baud);
 
 private:
     Ui::MainWindow *ui;
-    SettingsWidget *settingsWidget;
+    SettingsWidget settingsWidget;
 
     QString m_port;
     int m_baud;
