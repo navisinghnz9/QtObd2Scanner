@@ -19,7 +19,8 @@ HEADERS += \
 
 FORMS += \
     MainWindow.ui \
-    SettingsWidget.ui
+    SettingsWidget.ui \
+    TroubleCodes.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

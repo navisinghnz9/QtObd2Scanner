@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TroubleCodeWindow</class>
+ <widget class="QWidget" name="TroubleCodeWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string/>
+  </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>490</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <widget class="QListWidgetItem" name="listWidgetItem" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidgetItem" name="listWidgetItem" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidgetItem" name="listWidgetItem" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListWidgetItem" name="listWidgetItem" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="getTroubleCodesButton">
+   <property name="geometry">
+    <rect>
+     <x>109</x>
+     <y>440</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Get Codes</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearTroubleCodesButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>440</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeTroubleCodesButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>440</y>
+     <width>100</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QListWidgetItem</class>
+   <extends>QWidget</extends>
+   <header>qlistwidgetitem.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
