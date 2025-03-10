@@ -12,7 +12,7 @@ An OBD 2 scanner app for cars written in Qt, C++ and Python
 
 ## CAN Messaging
 
-![Alt text](docs/CAN_Messaging.png.png)
+![Alt text](docs/CAN_Messaging.png)
 
 
 ## DTC - Trouble Codes
