@@ -17,7 +17,7 @@ EOL
 
 PACKAGE_NAME="qtobd2scanner"
 QT_APP_BUILD_DIR="../build-QtObd2Scanner-Desktop-Debug"
-RELEASE_DIR="../deb"
+RELEASE_DIR="../Release"
 
 
 # creating the root directory for your package and
