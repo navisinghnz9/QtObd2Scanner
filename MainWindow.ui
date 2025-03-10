@@ -87,8 +87,21 @@
         <x>20</x>
         <y>30</y>
         <width>1221</width>
-        <height>481</height>
+        <height>581</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBTScanDevs">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>630</y>
+        <width>81</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Scan</string>
       </property>
      </widget>
     </widget>
