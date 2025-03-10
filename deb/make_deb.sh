@@ -1,6 +1,9 @@
 #!/bin/bash
 
 PACKAGE_NAME="qtobd2scanner"
+QT_APP_BUILD_DIR="../build-QtObd2Scanner-Desktop-Debug"
+RELEASE_DIR="../deb"
+
 
 # creating the root directory for your package
 mkdir -p $PACKAGE_NAME/DEBIAN
@@ -23,3 +26,7 @@ echo "  - Desktop entry:          $PACKAGE_NAME/usr/share/applications/"
 echo
 echo "After adding your files, you can proceed with creating the .deb package."
 echo "================================================================================================"
+
+
+cp $QT_APP_BUILD_DIR/QtObd2Scanner $PACKAGE_NAME/usr/bin
+dpkg-deb --build $PACKAGE_NAME $RELEASE_DIR
