@@ -26,3 +26,10 @@ An OBD 2 scanner app for cars written in Qt, C++ and Python
 ## Console Logging/Troubleshooting
 
 ![Alt text](docs/Console.png)
+
+
+## Generating Linux .deb installer
+
+Run script scripts/make_deb.sh
+
+![Alt text](docs/make_deb.png)
