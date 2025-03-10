@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1234</width>
-    <height>833</height>
+    <width>1282</width>
+    <height>823</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>1231</width>
+      <width>1261</width>
       <height>721</height>
      </rect>
     </property>
@@ -30,7 +30,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="summaryTab">
      <attribute name="title">
@@ -76,6 +76,21 @@
        </layout>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="tabBT">
+     <attribute name="title">
+      <string>BT</string>
+     </attribute>
+     <widget class="QListWidget" name="lstBTDevs">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>1221</width>
+        <height>481</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="supportedPidsTab">
      <attribute name="title">
@@ -864,7 +879,7 @@ The more PIDs you select, the slower they will update.</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1234</width>
+     <width>1282</width>
      <height>22</height>
     </rect>
    </property>
