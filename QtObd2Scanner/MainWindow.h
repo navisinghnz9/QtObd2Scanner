@@ -9,6 +9,7 @@
 #include <QPoint>
 #include <QListWidgetItem>
 #include <QHash>
+#include <QFile>
 
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +27,7 @@ public:
 private:
     QString extractDataInsideParentheses(const QString &text);
     QString extractTextOutsideParentheses(const QString &text);
+    void initializeCanbusUI();
 
 private slots:
     void OnSettingsMenuClicked();
@@ -49,5 +51,11 @@ private:
 
     QBluetoothDeviceDiscoveryAgent *discoveryAgent;
     QHash<QString, QBluetoothDeviceInfo> deviceHashTable;
+
+    //CAN Messaging related params
+    bool m_demoMode;
+    int m_canDispStyle;
+    QFile *m_canLogFile;
+    int m_canMsgCount;
 };
 #endif // MAINWINDOW_H

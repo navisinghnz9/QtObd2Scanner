@@ -31,6 +31,70 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lstBTDevs->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->lstBTDevs, &QListWidget::customContextMenuRequested, this, &MainWindow::showBTOptionsMenu);
+
+    initializeCanbusUI();
+}
+
+
+void MainWindow::initializeCanbusUI()
+{
+
+    // by default we will have display style 2
+    m_canDispStyle = 2;
+
+    m_demoMode = false;
+
+    // adding sorting optiions for Canbus data
+    ui->canStyleComboBox->addItem("Sort by ParamID");
+    ui->canStyleComboBox->addItem("Sort by Source");
+    ui->canStyleComboBox->addItem("Sort by Param, Overwrite and highlight changes");
+    ui->canStyleComboBox->setCurrentIndex(2);
+
+    if (m_canDispStyle == 0)
+    {
+        ui->canMsgTableWidget->setRowCount(1);
+    }
+    else if (m_canDispStyle == 1)
+    {
+        ui->canMsgTableWidget->setRowCount(1);
+    }
+    else if (m_canDispStyle == 2)
+    {
+        ui->canMsgTableWidget->setColumnCount(8);
+        ui->canMsgTableWidget->setHorizontalHeaderItem(0,new QTableWidgetItem("CANID"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(1,new QTableWidgetItem("SOURCE"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(2,new QTableWidgetItem("BYTE 0"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(3,new QTableWidgetItem("BYTE 1"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(4,new QTableWidgetItem("BYTE 2"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(5,new QTableWidgetItem("BYTE 3"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(6,new QTableWidgetItem("BYTE 4"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(7,new QTableWidgetItem("BYTE 5"));
+    }
+
+    // adding protocols for CANbus protocols
+    ui->canProtocolComboBox->addItem("11:J1850 PWM");
+    ui->canProtocolComboBox->addItem("12:J1850 VPW");
+    ui->canProtocolComboBox->addItem("21:ISO 9141 (no header no autoinit)");
+    ui->canProtocolComboBox->addItem("22:ISO 9141-2 (5 baud autoinit)");
+    ui->canProtocolComboBox->addItem("23:ISO 14230 (no autoinit)");
+    ui->canProtocolComboBox->addItem("24:ISO 14230 (5 baud autoinit)");
+    ui->canProtocolComboBox->addItem("25:ISO 14230 (fast autoinit)");
+    ui->canProtocolComboBox->addItem("31:HS CAN (ISO 11898, 11-bit Tx, 500kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("32:HS CAN (ISO 11898, 29-bit Tx, 500kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("33:HS CAN (ISO 15765, 11-bit Tx, 500kbps, DLC=8");
+    ui->canProtocolComboBox->addItem("34:HS CAN (ISO 15765, 29-bit Tx, 500kbps, DLC=8");
+    ui->canProtocolComboBox->addItem("35:HS CAN (ISO 15765, 11-bit Tx, 250kbps, DLC=8");
+    ui->canProtocolComboBox->addItem("36:HS CAN (ISO 15765, 29-bit Tx, 250kbps, DLC=8");
+    ui->canProtocolComboBox->addItem("41:J1939 (11-bit Tx)");
+    ui->canProtocolComboBox->addItem("42:J1939 (29-bit Tx)");
+    ui->canProtocolComboBox->addItem("51:MS CAN (ISO 11898, 11-bit Tx, 125kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("52:MS CAN (ISO 11898, 29-bit Tx, 125kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("53:MS CAN (ISO 15765, 11-bit Tx, 125kbps, DLC=8)");
+    ui->canProtocolComboBox->addItem("54:MS CAN (ISO 15765, 29-bit Tx, 125kbps, DLC=8)");
+    ui->canProtocolComboBox->addItem("61:SW CAN (ISO 11898, 11-bit Tx, 33.3kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("62:SW CAN (ISO 11898, 29-bit Tx, 33.3kbps, var DLC)");
+    ui->canProtocolComboBox->addItem("63:SW CAN (ISO 15765, 11-bit Tx, 33.3kbps, DLC=8)");
+    ui->canProtocolComboBox->addItem("64:SW CAN (ISO 15765, 29-bit Tx, 33.3kbps, DLC=8)");
 }
 
 void MainWindow::startScanning()
