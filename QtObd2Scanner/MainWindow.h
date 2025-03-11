@@ -42,6 +42,11 @@ private slots:
     void pairDevice(QListWidgetItem *item);
     void connectDevice(QListWidgetItem *item);
 
+    void uiCanSaveLogFileBrowseClicked();
+    void uiCanStyleChanged(int index);
+    void uiStartMonitorClicked();
+    void uiStopMonitorClicked();
+
 private:
     Ui::MainWindow *ui;
     SettingsWidget settingsWidget;

@@ -2,7 +2,7 @@
 #include "ui_MainWindow.h"
 
 #include <QSettings>
-
+#include <QFileDialog>
 #include <QBluetoothLocalDevice>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -95,6 +95,12 @@ void MainWindow::initializeCanbusUI()
     ui->canProtocolComboBox->addItem("62:SW CAN (ISO 11898, 29-bit Tx, 33.3kbps, var DLC)");
     ui->canProtocolComboBox->addItem("63:SW CAN (ISO 15765, 11-bit Tx, 33.3kbps, DLC=8)");
     ui->canProtocolComboBox->addItem("64:SW CAN (ISO 15765, 29-bit Tx, 33.3kbps, DLC=8)");
+
+
+    // signal handlers
+    connect(ui->canMonitorStartPushButton,SIGNAL(clicked()),this,SLOT(uiStartMonitorClicked()));
+    connect(ui->canMonitorStopPushButton,SIGNAL(clicked()),this,SLOT(uiStopMonitorClicked()));
+    connect( ui->canStyleComboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(uiCanStyleChanged(int)));
 }
 
 void MainWindow::startScanning()
@@ -250,3 +256,66 @@ void MainWindow::onSettingsChanged(QString port, int baud)
     ui->status_comPortLabel->setText("Com port: " + m_port);
     ui->status_comBaudLabel->setText("Baud Rate: " + QString::number(m_baud));
 }
+
+void MainWindow::uiCanStyleChanged(int index)
+{
+    m_canDispStyle = index;
+    ui->canMsgTableWidget->clear();
+    ui->canMsgTableWidget->setColumnCount(0);
+    if (m_canDispStyle == 0)
+    {
+        ui->canMsgTableWidget->setRowCount(1);
+    }
+    else if (m_canDispStyle == 1)
+    {
+        ui->canMsgTableWidget->setRowCount(1);
+    }
+    else if (m_canDispStyle == 2)
+    {
+        ui->canMsgTableWidget->setRowCount(0);
+        ui->canMsgTableWidget->setColumnCount(8);
+        ui->canMsgTableWidget->setHorizontalHeaderItem(0,new QTableWidgetItem("CANID"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(1,new QTableWidgetItem("SOURCE"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(2,new QTableWidgetItem("BYTE 0"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(3,new QTableWidgetItem("BYTE 1"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(4,new QTableWidgetItem("BYTE 2"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(5,new QTableWidgetItem("BYTE 3"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(6,new QTableWidgetItem("BYTE 4"));
+        ui->canMsgTableWidget->setHorizontalHeaderItem(7,new QTableWidgetItem("BYTE 5"));
+    }
+
+}
+
+void MainWindow::uiStartMonitorClicked()
+{
+    m_canMsgCount = 0;
+    QString file =  ui->canSaveLogFileLineEdit->text();
+    if (file != "")
+    {
+        m_canLogFile = new QFile(file);
+        m_canLogFile->open(QIODevice::ReadWrite | QIODevice::Append);
+    }
+    else
+    {
+        m_canLogFile = 0;
+    }
+
+}
+
+void MainWindow::uiStopMonitorClicked()
+{
+    //todo
+}
+
+void MainWindow::uiCanSaveLogFileBrowseClicked()
+{
+    QFileDialog dialog;
+    if (dialog.exec())
+    {
+        if (dialog.selectedFiles().size() > 0)
+        {
+            ui->canLoadLogFileLineEdit->setText(dialog.selectedFiles()[0]);
+        }
+    }
+}
+
